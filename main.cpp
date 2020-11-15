@@ -12,7 +12,7 @@ int main(void)
     cin >> n;
     cin.ignore();
     double* input = new double[n * n];
-
+    //Разбиваем строку ввода и получаем ряд матрицы
     string inp;
     string delimiter = " ";
     size_t pos = 0;
@@ -31,12 +31,12 @@ int main(void)
     }
 
     cout << endl;
-
+    //создаем матрицу
     Matrix mat(n, input);
 
     cout << mat << endl;
 
-
+    //считываем вектор значений
     pos = 0;
     string constVals;
     double* constValsArr = new double[n];
@@ -51,7 +51,7 @@ int main(void)
     }
 
     cout << endl;
-
+    //получаем вектор решений
     if (mat.isInvertible()) {
         Matrix matInv(mat.invert());
         double* solutions = matInv.findSolutions(constValsArr);
