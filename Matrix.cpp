@@ -104,7 +104,6 @@ ostream& operator <<(ostream& out, const Matrix& mat)
 
 double Matrix::det() {
     double det = 0;
-    for (int i = 0; i < 1; i++) {
         for (int j = 0; j < this->Mn; j++) {
             if (this->Mn > 2) {
                 double* arr = new double[this->Mn * this->Mn - 2 * this->Mn + 1];
@@ -118,7 +117,7 @@ double Matrix::det() {
                     }
                 }
                 Matrix a(this->Mn - 1, arr);
-                det = j % 2 == 0 ? det + matrix[i][j] * a.det() : det - matrix[i][j] * a.det();
+                det = j % 2 == 0 ? det + matrix[0][j] * a.det() : det - matrix[0][j] * a.det();
                 delete[] arr;
             }
             else if (this->Mn == 2){
@@ -126,7 +125,6 @@ double Matrix::det() {
                 return det;
             }
         }
-    }
     return det;
 }
 
